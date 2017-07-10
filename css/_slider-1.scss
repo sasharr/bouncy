@@ -1,0 +1,62 @@
+@mixin padding($padding) {
+  padding: $padding;
+}
+
+.slider-1 {
+  background: #ffffff;
+  text-align: center;
+  @include padding(0 0 40px 0);
+}
+
+.slider-team {
+  width: 1027px;
+  margin: 0 auto;
+  @include padding(21px 0 96px);//pixel perfect
+  &__about {
+    text-align: right;
+    float: right;
+  }
+  &__name {
+    color: #464646;
+    font-family: "Open Sans",sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+    border-right: 2px solid #19bd9a;
+    @include padding(20px 50px 0 0);
+    & span {
+      color: #81868e;
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 25px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.slider-team__slide,
+.slider-team__about {
+  width: 40%;
+  display: inline-block;
+}
+
+.slider-team__slide {
+text-align: left;
+}
+
+.slider-team__description {
+  @include padding(0 45px 0 0);
+  color: #81868e;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+@media screen and (max-width: 1024px) {
+  .slider-team {
+    width: 100%;
+  }
+}

@@ -1,0 +1,196 @@
+@mixin padding($padding) {
+  padding: $padding;
+}
+
+#menu-fixed {
+  width: 100%;
+  position: fixed;
+  z-index: 7;
+
+  @include padding(0 0 0 30px); //pixel perfect
+}
+
+#menu-fixed * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#menu-fixed.active {
+  background: #81868e;
+  transition: 3s;
+  opacity: 0.5;
+  &:hover {
+    background: #323a45;
+    opacity: 1;
+  }
+}
+
+.headsvg {
+  fill: white;
+  transition: 6s;
+  @include padding(18px 92px); //pixel perfect
+  &:hover {
+    fill: #19bd9a;
+    transition: 6s;
+  }
+}
+
+.headlist {
+  float: right;
+  @include padding(18px 150px 0 0); //pixel perfect
+  &__list {
+    @include padding(0 5px); //pixel perfect
+  }
+  &__link {
+    display: block; //? можно применить? для того чтобы избавться от "дергающейся" ссылки при наведении.
+    width: 70px;
+    height: 25px;
+    color: #ffffff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: center;
+    transition: 1s;
+    &:hover {
+      font-size: 19px;
+      color: #19bd9a;
+      transition: 1s;
+    }
+  }
+}
+
+//resize menu
+.open{
+  display: block;
+  margin-right: 50px;
+  float: right;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: opacity 0.2s linear;
+  &:hover{
+    opacity: 0.8;
+  }
+  span{
+    display: block;
+    height: 4px;
+    width: 40px;
+    border-radius: 40px;
+    background-color: #fff;
+    position: absolute;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    &:nth-child(1){
+      margin-top: 10px;
+      z-index: 9;
+    }
+    &:nth-child(2){
+      margin-top: 25px;
+    }
+    &:nth-child(3){
+      margin-top: 40px;
+    }
+  }
+}
+.sub-menu{
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  height: 0;
+  width: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+  background-color: rgb(83, 206, 179);
+  border-radius: 50%;
+  z-index: 18;
+  overflow: hidden;
+  li{
+    display: block;
+    float: right;
+    clear: both;
+    height: auto;
+    margin-right: -160px;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    &:first-child{
+      margin-top: 200px;
+    }
+    &:nth-child(1){
+      -webkit-transition-delay: 0.05s;
+    }
+    &:nth-child(2){
+      -webkit-transition-delay: 0.10s;
+    }
+    &:nth-child(3){
+      -webkit-transition-delay: 0.15s;
+    }
+    &:nth-child(4){
+      -webkit-transition-delay: 0.20s;
+    }
+    &:nth-child(5){
+      -webkit-transition-delay: 0.25s;
+    }
+    a{
+      color: #fff;
+      font-family: 'Lato', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      width: 100%;
+      display: block;
+      float: left;
+      line-height: 40px;
+    }
+  }
+}
+
+.oppenned{
+  .sub-menu{
+    opacity: 1;
+    height: 400px;
+    width: 400px;
+  }
+  span:nth-child(2){
+    overflow: visible;
+  }
+  span:nth-child(1), span:nth-child(3){
+    z-index: 100;
+    transform: rotate(45deg);
+  }
+  span:nth-child(1){
+    transform: rotate(45deg) translateY(12px) translateX(12px);
+  }
+  span:nth-child(2){
+    height: 400px;
+    width: 400px;
+    right: -160px;
+    top: -160px;
+    border-radius: 50%;
+    background-color: rgba(134, 216, 198, 0.85);
+  }
+  span:nth-child(3){
+    transform: rotate(-45deg) translateY(-10px) translateX(10px);
+  }
+  li{
+    margin-right: 200px;
+  }
+}
+
+#menu-fixed > .open {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  #menu-fixed > .headlist {
+    display: none;
+  }
+  #menu-fixed > .open {
+    display: block;
+  }
+}
+
+@media screen and (max-device-width: 800px) {
+  #menu-fixed > .headlist {
+    display: none;
+  }
+  #menu-fixed > .open {
+    display: block;
+  }
+}

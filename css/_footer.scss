@@ -1,0 +1,76 @@
+@mixin padding($padding) {
+  padding: $padding;
+}
+
+@mixin margin($margin) {
+  margin: $margin;
+}
+
+footer {
+  text-align: center;
+}
+
+.footer {
+  fill: #323a45;
+  @include margin(0 0 20px 0);//pixel perfect
+}
+
+.the-same-p {
+  @include padding(21px 0 27px);//pixel perfect
+}
+
+.sotial-contact {
+  @include padding(0 0 65px);
+  &__list {
+    display: inline-block;
+  }
+  &__link {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    margin: 0 2px;//pixel perfect
+    & i {
+      vertical-align: sub;
+    }
+    &--facebook {
+      background: #3b5998;
+      border: 2px solid #3b5998;
+    }
+    &--twitter {
+      background: #26a6d1;
+      border: 2px solid #26a6d1;
+    }
+    &--linkedin {
+      background: #0e76a8;
+      border: 2px solid #0e76a8;
+    }
+    &--insta {
+      background: #3f729b;
+      border: 2px solid #3f729b;
+    }
+    &--vimeo {
+      background: #86c9ef;
+      border: 2px solid #86c9ef;
+    }
+    &:hover {
+      color: #3b5998;
+      background: white;
+    }
+  }
+}
+
+.go-up {
+  opacity: 0.4;
+  margin: 0 auto;
+  &:hover {
+    opacity: 1;
+  }
+  &__img {
+    width: 26px;
+    height: 26px;
+  }
+}

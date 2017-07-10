@@ -1,0 +1,44 @@
+@mixin padding($padding) {
+  padding: $padding;
+}
+
+.contact-us {
+  background: url("../img/rectangle-7-copycontact-1.png");
+  opacity: 0.9;
+  text-align: center;
+  &__chat {
+    color: #ffffff;
+    letter-spacing: 1px;
+    font-family: "Open Sans",sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 25px;
+    margin: 0;
+    @include padding(50px 0 40px);//pixel perfect
+  }
+  &__go {
+    color: #ffffff;
+    font-family: "Open Sans",sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 12px;
+    border: 1px solid white;
+    @include padding(5px 15px);//pixel perfect
+    border-radius: 16px;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.bg-2 {
+  background: url("../img/layer-104contact-2.png");
+  background-size: cover;
+
+}
+.bg-3 {
+  background: url("../img/layer-105contact-3.png");
+  background-size: cover;
+  padding-bottom: 68px;
+}
